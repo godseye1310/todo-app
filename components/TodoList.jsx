@@ -1,6 +1,6 @@
 //
 
-import Task from "./Task";
+import TodoItem from "./TodoItem";
 
 const TodoList = () => {
 	return (
@@ -8,7 +8,7 @@ const TodoList = () => {
 			<h3>Todos</h3>
 			<ul>
 				<li>
-					<Task />
+					<TodoItem />
 				</li>
 			</ul>
 		</div>

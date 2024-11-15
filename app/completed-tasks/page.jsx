@@ -4,9 +4,7 @@ const CompletedTaskpage = () => {
 	return (
 		<div>
 			<h1>Completed Tasks</h1>
-			<div>
-				<TodoList />
-			</div>
+			<TodoList todos={todos.filter((todo) => todo.completed)} />
 		</div>
 	);
 };
