@@ -1,19 +1,20 @@
-//
+// components/TodoForm.js
+"use client";
 
+import { useTodoContext } from "@/context/todoContext";
 import { useState } from "react";
 
 const TodoForm = () => {
 	const [text, setText] = useState("");
-	const handleSubmit = async (e) => {
+	const { addTodo } = useTodoContext();
+
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		await fetch("/api/add-todo", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ text }),
-		});
-		setText(""); // Clear form
-		window.location.reload(); // Refresh the page to see new todos
+		if (!text.trim()) return;
+		addTodo(text);
+		setText("");
 	};
+
 	return (
 		<form onSubmit={handleSubmit}>
 			<input

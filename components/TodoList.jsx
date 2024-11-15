@@ -1,17 +1,15 @@
-//
+// components/TodoList.js
+"use client";
 
 import TodoItem from "./TodoItem";
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
 	return (
-		<div>
-			<h3>Todos</h3>
-			<ul>
-				<li>
-					<TodoItem />
-				</li>
-			</ul>
-		</div>
+		<ul>
+			{todos.map((todo) => (
+				<TodoItem key={todo.id} todo={todo} />
+			))}
+		</ul>
 	);
 };
 

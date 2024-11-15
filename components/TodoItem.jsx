@@ -1,14 +1,20 @@
-//
+// components/TodoItem.js
+"use client";
 
-const TodoItem = () => {
+import { useTodoContext } from "@/context/todoContext";
+
+const TodoItem = ({ todo }) => {
+	const { toggleTodo } = useTodoContext();
+
 	return (
-		<div className="flex flex-wrap gap-3 justify-between w-96">
-			<div className="flex gap-3">
-				<input type="checkbox" />
-				<p>Task1</p>
-			</div>
-			<div>delete</div>
-		</div>
+		<li>
+			<input
+				type="checkbox"
+				checked={todo.completed}
+				onChange={() => toggleTodo(todo.id)}
+			/>
+			{todo.text}
+		</li>
 	);
 };
 
