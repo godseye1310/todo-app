@@ -6,6 +6,9 @@ import Link from "next/link";
 
 const CompletedPage = () => {
 	const { todos } = useTodoContext();
+
+	// fetch the list of completed todos from the database
+
 	return (
 		<div className="flex flex-col items-center gap-5">
 			<Link href="/">Home</Link>
